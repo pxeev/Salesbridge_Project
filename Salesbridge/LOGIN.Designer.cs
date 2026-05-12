@@ -53,7 +53,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(158, 218);
+            this.pictureBox1.Location = new System.Drawing.Point(165, 218);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(203, 188);
             this.pictureBox1.TabIndex = 1;
@@ -112,7 +112,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(673, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(176, 39);
+            this.label4.Size = new System.Drawing.Size(170, 38);
             this.label4.TabIndex = 7;
             this.label4.Text = "Welcome!";
             // 
@@ -145,7 +145,7 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Sign up";
             // 
-            // Form1
+            // LOGIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,7 +161,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.richTextBox1);
-            this.Name = "Form1";
+            this.Name = "LOGIN";
             this.Text = "LOGIN";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

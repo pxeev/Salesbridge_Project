@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="INVENTORY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INVENTORY.Designer.cs">
+      <DependentUpon>INVENTORY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="REGISTRATION.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REGISTRATION.Designer.cs">
+      <DependentUpon>REGISTRATION.cs</DependentUpon>
+    </Compile>
     <Compile Include="LOGIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="INVENTORY.resx">
+      <DependentUpon>INVENTORY.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +82,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="REGISTRATION.resx">
+      <DependentUpon>REGISTRATION.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
