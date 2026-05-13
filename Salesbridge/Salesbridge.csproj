@@ -53,6 +53,18 @@
     <Compile Include="ANALYTICS.Designer.cs">
       <DependentUpon>ANALYTICS.cs</DependentUpon>
     </Compile>
+    <Compile Include="DASHBOARD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DASHBOARD.Designer.cs">
+      <DependentUpon>DASHBOARD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION.Designer.cs">
+      <DependentUpon>TRANSACTION.cs</DependentUpon>
+    </Compile>
     <Compile Include="POS TERMINAL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +99,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ANALYTICS.resx">
       <DependentUpon>ANALYTICS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DASHBOARD.resx">
+      <DependentUpon>DASHBOARD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION.resx">
+      <DependentUpon>TRANSACTION.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POS TERMINAL.resx">
       <DependentUpon>POS TERMINAL.cs</DependentUpon>
