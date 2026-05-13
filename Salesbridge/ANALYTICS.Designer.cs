@@ -1,6 +1,6 @@
 ﻿namespace Salesbridge
 {
-    partial class INVENTORY
+    partial class ANALYTICS
     {
         /// <summary>
         /// Required designer variable.
@@ -32,10 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -50,6 +48,14 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -64,12 +70,11 @@
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.Black;
-            this.richTextBox1.Location = new System.Drawing.Point(-3, -18);
+            this.richTextBox1.Location = new System.Drawing.Point(6, -14);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(259, 691);
-            this.richTextBox1.TabIndex = 3;
+            this.richTextBox1.TabIndex = 56;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // label1
             // 
@@ -77,18 +82,18 @@
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 35);
+            this.label1.Location = new System.Drawing.Point(21, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 29);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 57;
             this.label1.Text = "SalesBridge";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(170, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(179, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(61, 53);
-            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabIndex = 58;
             this.pictureBox1.TabStop = false;
             // 
             // label8
@@ -97,55 +102,34 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(262, 81);
+            this.label8.Location = new System.Drawing.Point(271, 28);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(139, 32);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Inventory";
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(268, 119);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(788, 528);
-            this.richTextBox2.TabIndex = 13;
-            this.richTextBox2.Text = "";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            this.label8.Size = new System.Drawing.Size(138, 32);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Analytics";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(858, 34);
+            this.textBox1.Location = new System.Drawing.Point(867, 38);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 22);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TabIndex = 60;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(1015, 25);
+            this.pictureBox2.Location = new System.Drawing.Point(1024, 29);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(41, 39);
-            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabIndex = 61;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(935, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "+ Add Product";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(17, 617);
+            this.pictureBox3.Location = new System.Drawing.Point(26, 621);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 30);
-            this.pictureBox3.TabIndex = 17;
+            this.pictureBox3.TabIndex = 62;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // button2
             // 
@@ -154,13 +138,12 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(67, 170);
+            this.button2.Location = new System.Drawing.Point(76, 174);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 27);
-            this.button2.TabIndex = 18;
+            this.button2.TabIndex = 63;
             this.button2.Text = "Dashboard";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -169,10 +152,10 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(67, 220);
+            this.button3.Location = new System.Drawing.Point(76, 224);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(116, 27);
-            this.button3.TabIndex = 19;
+            this.button3.TabIndex = 64;
             this.button3.Text = "Transaction";
             this.button3.UseVisualStyleBackColor = false;
             // 
@@ -183,10 +166,10 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(66, 270);
+            this.button4.Location = new System.Drawing.Point(75, 274);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(137, 27);
-            this.button4.TabIndex = 20;
+            this.button4.TabIndex = 65;
             this.button4.Text = "POS Terminal";
             this.button4.UseVisualStyleBackColor = false;
             // 
@@ -197,10 +180,10 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(68, 320);
+            this.button5.Location = new System.Drawing.Point(77, 324);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(93, 27);
-            this.button5.TabIndex = 21;
+            this.button5.TabIndex = 66;
             this.button5.Text = "Inventory";
             this.button5.UseVisualStyleBackColor = false;
             // 
@@ -211,10 +194,10 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(65, 370);
+            this.button6.Location = new System.Drawing.Point(74, 374);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(119, 27);
-            this.button6.TabIndex = 22;
+            this.button6.TabIndex = 67;
             this.button6.Text = "Notification";
             this.button6.UseVisualStyleBackColor = false;
             // 
@@ -225,10 +208,10 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(71, 420);
+            this.button7.Location = new System.Drawing.Point(80, 424);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(95, 27);
-            this.button7.TabIndex = 23;
+            this.button7.TabIndex = 68;
             this.button7.Text = "Analytics";
             this.button7.UseVisualStyleBackColor = false;
             // 
@@ -239,66 +222,146 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(52, 616);
+            this.button8.Location = new System.Drawing.Point(61, 620);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(79, 32);
-            this.button8.TabIndex = 24;
+            this.button8.TabIndex = 69;
             this.button8.Text = "Logout";
             this.button8.UseVisualStyleBackColor = false;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(37, 169);
+            this.pictureBox4.Location = new System.Drawing.Point(46, 173);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(31, 30);
-            this.pictureBox4.TabIndex = 25;
+            this.pictureBox4.TabIndex = 70;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(37, 219);
+            this.pictureBox5.Location = new System.Drawing.Point(46, 223);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(31, 30);
-            this.pictureBox5.TabIndex = 26;
+            this.pictureBox5.TabIndex = 71;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(37, 269);
+            this.pictureBox6.Location = new System.Drawing.Point(46, 273);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(31, 30);
-            this.pictureBox6.TabIndex = 27;
+            this.pictureBox6.TabIndex = 72;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(37, 319);
+            this.pictureBox7.Location = new System.Drawing.Point(46, 323);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(31, 30);
-            this.pictureBox7.TabIndex = 28;
+            this.pictureBox7.TabIndex = 73;
             this.pictureBox7.TabStop = false;
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(37, 368);
+            this.pictureBox8.Location = new System.Drawing.Point(46, 372);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(31, 30);
-            this.pictureBox8.TabIndex = 29;
+            this.pictureBox8.TabIndex = 74;
             this.pictureBox8.TabStop = false;
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(37, 418);
+            this.pictureBox9.Location = new System.Drawing.Point(46, 422);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(31, 30);
-            this.pictureBox9.TabIndex = 30;
+            this.pictureBox9.TabIndex = 75;
             this.pictureBox9.TabStop = false;
             // 
-            // INVENTORY
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(277, 476);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(782, 167);
+            this.richTextBox2.TabIndex = 77;
+            this.richTextBox2.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(273, 453);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(189, 20);
+            this.label2.TabIndex = 78;
+            this.label2.Text = "Payment Breakdowns";
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(277, 252);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(782, 198);
+            this.richTextBox3.TabIndex = 79;
+            this.richTextBox3.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(273, 229);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(208, 20);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Monthly Sales TRENDS";
+            // 
+            // richTextBox4
+            // 
+            this.richTextBox4.Location = new System.Drawing.Point(277, 86);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.Size = new System.Drawing.Size(190, 129);
+            this.richTextBox4.TabIndex = 81;
+            this.richTextBox4.Text = "";
+            // 
+            // richTextBox5
+            // 
+            this.richTextBox5.Location = new System.Drawing.Point(474, 86);
+            this.richTextBox5.Name = "richTextBox5";
+            this.richTextBox5.Size = new System.Drawing.Size(190, 129);
+            this.richTextBox5.TabIndex = 82;
+            this.richTextBox5.Text = "";
+            // 
+            // richTextBox6
+            // 
+            this.richTextBox6.Location = new System.Drawing.Point(671, 86);
+            this.richTextBox6.Name = "richTextBox6";
+            this.richTextBox6.Size = new System.Drawing.Size(190, 129);
+            this.richTextBox6.TabIndex = 83;
+            this.richTextBox6.Text = "";
+            // 
+            // richTextBox7
+            // 
+            this.richTextBox7.Location = new System.Drawing.Point(869, 86);
+            this.richTextBox7.Name = "richTextBox7";
+            this.richTextBox7.Size = new System.Drawing.Size(190, 129);
+            this.richTextBox7.TabIndex = 84;
+            this.richTextBox7.Text = "";
+            // 
+            // ANALYTICS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 663);
+            this.Controls.Add(this.richTextBox7);
+            this.Controls.Add(this.richTextBox6);
+            this.Controls.Add(this.richTextBox5);
+            this.Controls.Add(this.richTextBox4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.richTextBox3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
@@ -313,17 +376,14 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
-            this.Name = "INVENTORY";
-            this.Text = "INVENTORY";
-            this.Load += new System.EventHandler(this.INVENTORY_Load);
+            this.Name = "ANALYTICS";
+            this.Text = "ANALYTICS";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -344,10 +404,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -362,5 +420,13 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.RichTextBox richTextBox5;
+        private System.Windows.Forms.RichTextBox richTextBox6;
+        private System.Windows.Forms.RichTextBox richTextBox7;
     }
 }

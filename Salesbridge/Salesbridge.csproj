@@ -47,6 +47,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ANALYTICS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ANALYTICS.Designer.cs">
+      <DependentUpon>ANALYTICS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POS TERMINAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS TERMINAL.Designer.cs">
+      <DependentUpon>POS TERMINAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NOTIFICATION.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NOTIFICATION.Designer.cs">
+      <DependentUpon>NOTIFICATION.cs</DependentUpon>
+    </Compile>
     <Compile Include="INVENTORY.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +85,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ANALYTICS.resx">
+      <DependentUpon>ANALYTICS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS TERMINAL.resx">
+      <DependentUpon>POS TERMINAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NOTIFICATION.resx">
+      <DependentUpon>NOTIFICATION.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="INVENTORY.resx">
       <DependentUpon>INVENTORY.cs</DependentUpon>
     </EmbeddedResource>
