@@ -17,55 +17,45 @@ namespace Salesbridge
             InitializeComponent();
             ApplyTheme();
         }
+
         private void ApplyTheme()  // LOGIN
         {
             this.BackColor = System.Drawing.Color.FromArgb(245, 244, 240);
 
-            // Dark left panel → navy
             richTextBox1.BackColor = System.Drawing.Color.FromArgb(30, 30, 44);
             richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            // Bridge logo
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
             pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            // "Welcome back!" (label4)
             label4.ForeColor = System.Drawing.Color.FromArgb(40, 40, 52);
             label4.BackColor = System.Drawing.Color.Transparent;
             label4.Font = new System.Drawing.Font("Segoe UI", 19.8F,
                                    System.Drawing.FontStyle.Bold);
 
-            // "Login to your Salesbridge account" (label7)
             label7.ForeColor = System.Drawing.Color.FromArgb(140, 140, 155);
             label7.BackColor = System.Drawing.Color.Transparent;
 
-            // "Email:" (label1)
             label1.ForeColor = System.Drawing.Color.FromArgb(140, 140, 155);
             label1.BackColor = System.Drawing.Color.Transparent;
 
-            // "Password:" (label2)
             label2.ForeColor = System.Drawing.Color.FromArgb(140, 140, 155);
             label2.BackColor = System.Drawing.Color.Transparent;
 
-            // Email TextBox (textBox1)
             textBox1.BackColor = System.Drawing.Color.FromArgb(235, 235, 238);
             textBox1.ForeColor = System.Drawing.Color.FromArgb(40, 40, 52);
             textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
-            // Password TextBox (textBox2)
             textBox2.BackColor = System.Drawing.Color.FromArgb(235, 235, 238);
             textBox2.ForeColor = System.Drawing.Color.FromArgb(40, 40, 52);
             textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
-            // "Forgot Password" (label3)
             label3.ForeColor = System.Drawing.Color.FromArgb(242, 159, 103);
             label3.BackColor = System.Drawing.Color.Transparent;
 
-            // "Don't have an account yet?" (label5)
             label5.ForeColor = System.Drawing.Color.FromArgb(140, 140, 155);
             label5.BackColor = System.Drawing.Color.Transparent;
 
-            // Continue (button1) — orange
             button1.BackColor = System.Drawing.Color.FromArgb(242, 159, 103);
             button1.ForeColor = System.Drawing.Color.White;
             button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -75,7 +65,6 @@ namespace Salesbridge
             button1.Cursor = System.Windows.Forms.Cursors.Hand;
             button1.UseVisualStyleBackColor = false;
 
-            // Register (button2) — orange outline
             button2.BackColor = System.Drawing.Color.Transparent;
             button2.ForeColor = System.Drawing.Color.FromArgb(242, 159, 103);
             button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -91,15 +80,102 @@ namespace Salesbridge
         {
 
         }
-
         private void LOGIN_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                DatabaseHelper.InitializeDatabase();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not connect to the database.\n\n" + ex.Message,
+                    "Database Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
+            string email = Microsoft.VisualBasic.Interaction.InputBox( //ask the user for their registered email address
+                "Enter your registered email address:",
+                "Forgot Password",
+                "");
 
+            if (string.IsNullOrWhiteSpace(email))
+                return;
+
+            try
+            {
+                string username = DatabaseHelper.GetUsernameByEmail(email);
+
+                if (username != null)
+                {
+                    MessageBox.Show(
+                        $"An account with the username \"{username}\" was found.\n\n" +
+                        "Please contact your system administrator to reset your password.",
+                        "Account Found",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No account was found with that email address.",
+                        "Not Found",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Database error: " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string email = textBox1.Text.Trim();
+            string password = textBox2.Text;
+
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please enter both your email and password.",
+                    "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                if (DatabaseHelper.ValidateUser(email, password))
+                {
+                    DASHBOARD dashboard = new DASHBOARD();
+                    dashboard.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid email or password. Please try again.",
+                        "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox2.Clear();
+                    textBox2.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database error: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            REGISTRATION regForm = new REGISTRATION();
+            regForm.Show();
+            this.Hide();
         }
     }
 }

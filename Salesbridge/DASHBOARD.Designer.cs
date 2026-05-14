@@ -89,19 +89,19 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(204, 27);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(374, 50);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(162, 26);
+            this.label8.Size = new System.Drawing.Size(266, 44);
             this.label8.TabIndex = 87;
             this.label8.Text = "DASHBOARD";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(1024, 34);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Location = new System.Drawing.Point(1877, 63);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(110, 20);
+            this.textBox1.Size = new System.Drawing.Size(198, 29);
             this.textBox1.TabIndex = 92;
             // 
             // label2
@@ -110,10 +110,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(202, 92);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(370, 170);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.Size = new System.Drawing.Size(152, 25);
             this.label2.TabIndex = 94;
             this.label2.Text = "Total Revenue";
             // 
@@ -123,10 +123,10 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(199, 326);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(365, 602);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(101, 25);
             this.label3.TabIndex = 95;
             this.label3.Text = "Inventory";
             // 
@@ -136,22 +136,23 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(745, 92);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(1366, 170);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 13);
+            this.label4.Size = new System.Drawing.Size(210, 25);
             this.label4.TabIndex = 96;
             this.label4.Text = "Recent Transactions";
             // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.Black;
-            this.richTextBox1.Location = new System.Drawing.Point(0, -23);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBox1.Location = new System.Drawing.Point(0, -42);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(195, 562);
+            this.richTextBox1.Size = new System.Drawing.Size(354, 1034);
             this.richTextBox1.TabIndex = 70;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // label1
             // 
@@ -159,85 +160,100 @@
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(11, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 24);
+            this.label1.Size = new System.Drawing.Size(204, 38);
             this.label1.TabIndex = 100;
             this.label1.Text = "SalesBridge";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(70, 126);
+            this.button1.Location = new System.Drawing.Point(128, 233);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 35);
+            this.button1.Size = new System.Drawing.Size(167, 65);
             this.button1.TabIndex = 116;
             this.button1.Text = "Dashboard";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(70, 167);
+            this.button2.Location = new System.Drawing.Point(128, 308);
+            this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 34);
+            this.button2.Size = new System.Drawing.Size(167, 63);
             this.button2.TabIndex = 117;
             this.button2.Text = "Transaction";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(70, 207);
+            this.button3.Location = new System.Drawing.Point(128, 382);
+            this.button3.Margin = new System.Windows.Forms.Padding(6);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 35);
+            this.button3.Size = new System.Drawing.Size(167, 65);
             this.button3.TabIndex = 118;
             this.button3.Text = "POS";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(70, 248);
+            this.button4.Location = new System.Drawing.Point(128, 458);
+            this.button4.Margin = new System.Windows.Forms.Padding(6);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 34);
+            this.button4.Size = new System.Drawing.Size(167, 63);
             this.button4.TabIndex = 119;
             this.button4.Text = "Inventory";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(70, 286);
+            this.button5.Location = new System.Drawing.Point(128, 528);
+            this.button5.Margin = new System.Windows.Forms.Padding(6);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(91, 36);
+            this.button5.Size = new System.Drawing.Size(167, 66);
             this.button5.TabIndex = 120;
             this.button5.Text = "Notifications";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(70, 326);
+            this.button6.Location = new System.Drawing.Point(128, 602);
+            this.button6.Margin = new System.Windows.Forms.Padding(6);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(91, 37);
+            this.button6.Size = new System.Drawing.Size(167, 68);
             this.button6.TabIndex = 121;
             this.button6.Text = "Analytics";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(53, 488);
+            this.button7.Location = new System.Drawing.Point(97, 901);
+            this.button7.Margin = new System.Windows.Forms.Padding(6);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 29);
+            this.button7.Size = new System.Drawing.Size(138, 54);
             this.button7.TabIndex = 122;
             this.button7.Text = "Logout";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
             // pictureBox9
             // 
             this.pictureBox9.Image = global::Salesbridge.Properties.Resources.bar_chart;
-            this.pictureBox9.Location = new System.Drawing.Point(23, 326);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox9.Location = new System.Drawing.Point(42, 602);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(42, 37);
+            this.pictureBox9.Size = new System.Drawing.Size(77, 68);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 115;
             this.pictureBox9.TabStop = false;
@@ -246,10 +262,10 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::Salesbridge.Properties.Resources.bell;
-            this.pictureBox8.Location = new System.Drawing.Point(23, 286);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox8.Location = new System.Drawing.Point(42, 528);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(42, 36);
+            this.pictureBox8.Size = new System.Drawing.Size(77, 66);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 114;
             this.pictureBox8.TabStop = false;
@@ -258,10 +274,10 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::Salesbridge.Properties.Resources.inventory;
-            this.pictureBox7.Location = new System.Drawing.Point(23, 247);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox7.Location = new System.Drawing.Point(42, 456);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(42, 35);
+            this.pictureBox7.Size = new System.Drawing.Size(77, 65);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 113;
             this.pictureBox7.TabStop = false;
@@ -269,10 +285,10 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Salesbridge.Properties.Resources.pos;
-            this.pictureBox6.Location = new System.Drawing.Point(23, 205);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox6.Location = new System.Drawing.Point(42, 378);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(42, 37);
+            this.pictureBox6.Size = new System.Drawing.Size(77, 68);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 112;
             this.pictureBox6.TabStop = false;
@@ -280,10 +296,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Salesbridge.Properties.Resources.transaction;
-            this.pictureBox5.Location = new System.Drawing.Point(23, 165);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Location = new System.Drawing.Point(42, 305);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(42, 36);
+            this.pictureBox5.Size = new System.Drawing.Size(77, 66);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 111;
             this.pictureBox5.TabStop = false;
@@ -291,43 +307,46 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Salesbridge.Properties.Resources.dashboard;
-            this.pictureBox4.Location = new System.Drawing.Point(23, 126);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Location = new System.Drawing.Point(42, 233);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(42, 35);
+            this.pictureBox4.Size = new System.Drawing.Size(77, 65);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 110;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Salesbridge.Properties.Resources.logout;
-            this.pictureBox3.Location = new System.Drawing.Point(11, 488);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Location = new System.Drawing.Point(20, 901);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 30);
+            this.pictureBox3.Size = new System.Drawing.Size(64, 55);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 102;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Salesbridge.Properties.Resources.bridge;
-            this.pictureBox1.Location = new System.Drawing.Point(132, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(242, 26);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 39);
+            this.pictureBox1.Size = new System.Drawing.Size(84, 72);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 101;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Salesbridge.Properties.Resources.search_interface_symbol;
-            this.pictureBox2.Location = new System.Drawing.Point(1142, 27);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Location = new System.Drawing.Point(2094, 50);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 32);
+            this.pictureBox2.Size = new System.Drawing.Size(57, 59);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 93;
             this.pictureBox2.TabStop = false;
@@ -343,46 +362,54 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.dataGridView2.Location = new System.Drawing.Point(748, 111);
+            this.dataGridView2.Location = new System.Drawing.Point(1371, 205);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(425, 412);
+            this.dataGridView2.RowHeadersWidth = 72;
+            this.dataGridView2.Size = new System.Drawing.Size(779, 761);
             this.dataGridView2.TabIndex = 209;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 43;
+            this.dataGridViewTextBoxColumn1.Width = 72;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "DATE";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 61;
+            this.dataGridViewTextBoxColumn2.Width = 107;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "TIME";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 58;
+            this.dataGridViewTextBoxColumn3.Width = 101;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "TOTAL";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 67;
+            this.dataGridViewTextBoxColumn4.Width = 120;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.HeaderText = "CASHIER";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 79;
+            this.dataGridViewTextBoxColumn5.Width = 141;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.HeaderText = "STATUS";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 75;
+            this.dataGridViewTextBoxColumn6.Width = 135;
             // 
             // dataGridView3
             // 
@@ -394,34 +421,41 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
-            this.dataGridView3.Location = new System.Drawing.Point(200, 342);
+            this.dataGridView3.Location = new System.Drawing.Point(367, 631);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(522, 181);
+            this.dataGridView3.RowHeadersWidth = 72;
+            this.dataGridView3.Size = new System.Drawing.Size(957, 334);
             this.dataGridView3.TabIndex = 210;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.HeaderText = "PRODUCT";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.HeaderText = "CATEGORY";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.HeaderText = "PRICE";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.HeaderText = "STOCK";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.HeaderText = "STATUS";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
             // dataGridView1
@@ -433,36 +467,42 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(205, 111);
+            this.dataGridView1.Location = new System.Drawing.Point(376, 205);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(522, 187);
+            this.dataGridView1.RowHeadersWidth = 72;
+            this.dataGridView1.Size = new System.Drawing.Size(957, 345);
             this.dataGridView1.TabIndex = 212;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "ID";
+            this.Column4.MinimumWidth = 9;
             this.Column4.Name = "Column4";
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Product";
+            this.Column1.MinimumWidth = 9;
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Revenue";
+            this.Column2.MinimumWidth = 9;
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Units Sold";
+            this.Column3.MinimumWidth = 9;
             this.Column3.Name = "Column3";
             // 
             // DASHBOARD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 535);
+            this.ClientSize = new System.Drawing.Size(2206, 988);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView2);
@@ -489,6 +529,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.richTextBox1);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "DASHBOARD";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.DASHBOARD_Load);
