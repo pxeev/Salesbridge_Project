@@ -16,5 +16,25 @@ namespace Salesbridge
         {
             InitializeComponent();
         }
+
+        private void ANALYTICS_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void chart1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
