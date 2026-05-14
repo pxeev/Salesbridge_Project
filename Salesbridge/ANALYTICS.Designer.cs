@@ -103,7 +103,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Salesbridge.Properties.Resources.search_interface_symbol;
-            this.pictureBox2.Location = new System.Drawing.Point(1402, 59);
+            this.pictureBox2.Location = new System.Drawing.Point(1402, 44);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(57, 59);
