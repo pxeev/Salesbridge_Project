@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Salesbridge
@@ -16,48 +11,50 @@ namespace Salesbridge
         private DataTable _revenueTable = new DataTable();
         private DataTable _transactionTable = new DataTable();
         private DataTable _inventoryTable = new DataTable();
+        private Panel _contentPanel;
 
         public DASHBOARD()
         {
             InitializeComponent();
+            CreateContentPanel();
+        }
+        private void CreateContentPanel()
+        {
+            _contentPanel = new Panel();
+            _contentPanel.Left = 354;
+            _contentPanel.Top = 0;
+            _contentPanel.Width = Math.Max(100, this.ClientSize.Width - 354);
+            _contentPanel.Height = this.ClientSize.Height;
+            _contentPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom |
+                                      AnchorStyles.Left | AnchorStyles.Right;
+            _contentPanel.BackColor = Color.WhiteSmoke;
+            _contentPanel.Visible = false;
+            this.Controls.Add(_contentPanel);
+            this.Controls.SetChildIndex(_contentPanel, this.Controls.Count - 1);
         }
 
         private void DASHBOARD_Load(object sender, EventArgs e)
         {
-            try
-            {
-                SetupGridColumns();
-                InitializeDashboardTables();
-                LoadDashboardData();
-                textBox1.TextChanged += textBox1_TextChanged;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Error loading dashboard:\n" + ex.Message,
-                    "Database Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+            label1.Text = $"SalesBridge  |  {AppSession.CurrentUsername}";
+            SetupGridColumns();
+            LoadDashboardData();
+            textBox1.TextChanged += textBox1_TextChanged;
         }
-
         private void SetupGridColumns()
         {
-
             dataGridView1.AutoGenerateColumns = false;
             Column4.DataPropertyName = "ID";
             Column1.DataPropertyName = "Product";
             Column2.DataPropertyName = "Revenue";
             Column3.DataPropertyName = "Units Sold";
-
             dataGridView2.AutoGenerateColumns = false;
             dataGridViewTextBoxColumn1.DataPropertyName = "ID";
             dataGridViewTextBoxColumn2.DataPropertyName = "DATE";
-            dataGridViewTextBoxColumn3.DataPropertyName = "TIME";
+            dataGridViewTextBoxColumn3.DataPropertyName = "ITEMS";
+            dataGridViewTextBoxColumn3.HeaderText = "ITEMS";
             dataGridViewTextBoxColumn4.DataPropertyName = "TOTAL";
             dataGridViewTextBoxColumn5.DataPropertyName = "CASHIER";
             dataGridViewTextBoxColumn6.DataPropertyName = "STATUS";
-
             dataGridView3.AutoGenerateColumns = false;
             dataGridViewTextBoxColumn7.DataPropertyName = "PRODUCT";
             dataGridViewTextBoxColumn8.DataPropertyName = "CATEGORY";
@@ -65,91 +62,121 @@ namespace Salesbridge
             dataGridViewTextBoxColumn10.DataPropertyName = "STOCK";
             dataGridViewTextBoxColumn11.DataPropertyName = "STATUS";
         }
-
-        private void InitializeDashboardTables()
+        private void LoadDashboardData()
         {
-            using (SqlConnection conn = new SqlConnection(DatabaseHelper.AppConnection))
+            try
             {
-                conn.Open();
+                _revenueTable = DatabaseHelper.GetRevenueTable();
+                dataGridView1.DataSource = _revenueTable;
 
-                string createProducts =
-                    "IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Products' AND xtype='U') " +
-                    "CREATE TABLE Products (" +
-                    "    Id          INT IDENTITY(1,1) PRIMARY KEY, " +
-                    "    ProductName NVARCHAR(200) NOT NULL, " +
-                    "    Category    NVARCHAR(100), " +
-                    "    Price       DECIMAL(10,2) NOT NULL DEFAULT 0, " +
-                    "    Stock       INT           NOT NULL DEFAULT 0, " +
-                    "    Status      NVARCHAR(50)  NOT NULL DEFAULT 'Available', " +
-                    "    Revenue     DECIMAL(10,2) NOT NULL DEFAULT 0, " +
-                    "    UnitsSold   INT           NOT NULL DEFAULT 0);";
-                new SqlCommand(createProducts, conn).ExecuteNonQuery();
+                _transactionTable = DatabaseHelper.GetRecentTransactions();
+                dataGridView2.DataSource = _transactionTable;
 
-                string createTransactions =
-                    "IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Transactions' AND xtype='U') " +
-                    "CREATE TABLE Transactions (" +
-                    "    Id      INT IDENTITY(1,1) PRIMARY KEY, " +
-                    "    TxDate  DATE          NOT NULL DEFAULT GETDATE(), " +
-                    "    TxTime  TIME          NOT NULL DEFAULT CONVERT(TIME,GETDATE()), " +
-                    "    Total   DECIMAL(10,2) NOT NULL DEFAULT 0, " +
-                    "    Cashier NVARCHAR(100), " +
-                    "    Status  NVARCHAR(50)  NOT NULL DEFAULT 'Completed');";
-                new SqlCommand(createTransactions, conn).ExecuteNonQuery();
+                _inventoryTable = DatabaseHelper.GetInventoryTable();
+                dataGridView3.DataSource = _inventoryTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data:\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void LoadDashboardData()
+        public void NavigateTo(string module)
         {
-            using (SqlConnection conn = new SqlConnection(DatabaseHelper.AppConnection))
+            switch (module)
             {
-                conn.Open();
-
-                string revenueSQL =
-                    "SELECT Id          AS [ID], " +
-                    "       ProductName AS [Product], " +
-                    "       Revenue     AS [Revenue], " +
-                    "       UnitsSold   AS [Units Sold] " +
-                    "FROM   Products " +
-                    "ORDER  BY Revenue DESC;";
-                SqlDataAdapter daRev = new SqlDataAdapter(revenueSQL, conn);
-                _revenueTable = new DataTable();
-                daRev.Fill(_revenueTable);
-                dataGridView1.DataSource = _revenueTable;
-
-                string txSQL =
-                    "SELECT TOP 50 " +
-                    "    Id                                   AS [ID], " +
-                    "    CONVERT(NVARCHAR,TxDate,101)         AS [DATE], " +
-                    "    CONVERT(NVARCHAR,TxTime,100)         AS [TIME], " +
-                    "    Total                                AS [TOTAL], " +
-                    "    Cashier                              AS [CASHIER], " +
-                    "    Status                               AS [STATUS] " +
-                    "FROM  Transactions " +
-                    "ORDER BY Id DESC;";
-                SqlDataAdapter daTx = new SqlDataAdapter(txSQL, conn);
-                _transactionTable = new DataTable();
-                daTx.Fill(_transactionTable);
-                dataGridView2.DataSource = _transactionTable;
-
-                string invSQL =
-                    "SELECT ProductName AS [PRODUCT], " +
-                    "       Category    AS [CATEGORY], " +
-                    "       Price       AS [PRICE], " +
-                    "       Stock       AS [STOCK], " +
-                    "       Status      AS [STATUS] " +
-                    "FROM   Products " +
-                    "ORDER  BY ProductName;";
-                SqlDataAdapter daInv = new SqlDataAdapter(invSQL, conn);
-                _inventoryTable = new DataTable();
-                daInv.Fill(_inventoryTable);
-                dataGridView3.DataSource = _inventoryTable;
+                case "Dashboard": ShowDashboardSummary(); break;
+                case "Transaction": EmbedChild(new TRANSACTION()); break;
+                case "POS": EmbedChild(new Form1()); break;
+                case "Inventory": EmbedChild(new INVENTORY()); break;
+                case "Notification": EmbedChild(new NOTIFICATION()); break;
+                case "Analytics": EmbedChild(new ANALYTICS()); break;
+                case "Logout": Logout(); break;
             }
+        }
+        private void EmbedChild(Form child)
+        {
+            foreach (Control c in _contentPanel.Controls)
+                if (c is Form f) f.Close();
+            _contentPanel.Controls.Clear();
+
+            SetDashboardSummaryVisible(false);
+            child.TopLevel = false;
+            child.FormBorderStyle = FormBorderStyle.None;
+            child.Location = new Point(0, 0);
+            child.Size = _contentPanel.ClientSize;
+            _contentPanel.Controls.Add(child);
+            _contentPanel.Visible = true;
+            child.Show();
+            this.BeginInvoke(new Action(() =>
+            {
+                HideChildSidebar(child);
+                ShiftChildContent(child);
+            }));
+        }
+
+        private static readonly HashSet<string> _sidebarNames = new HashSet<string>
+        {
+            "richTextBox1", "label1", "pictureBox1",
+            "pictureBox3",  "pictureBox4",  "pictureBox5",
+            "pictureBox6",  "pictureBox7",  "pictureBox8", "pictureBox9"
+        };
+
+        private void HideChildSidebar(Form child)
+        {
+            foreach (Control c in child.Controls)
+            {
+                if (_sidebarNames.Contains(c.Name))
+                {
+                    c.Visible = false;
+                    continue;
+                }
+                if (c is Button && c.Left < 200)
+                    c.Visible = false;
+            }
+        }
+
+        private void ShiftChildContent(Form child)
+        {
+            int minX = int.MaxValue;
+            foreach (Control c in child.Controls)
+                if (c.Visible && c.Left < minX)
+                    minX = c.Left;
+
+            if (minX == int.MaxValue || minX <= 10) return;
+            int shift = minX - 5;
+            foreach (Control c in child.Controls)
+                if (c.Visible)
+                    c.Left = Math.Max(0, c.Left - shift);
+        }
+        private void ShowDashboardSummary()
+        {
+            foreach (Control c in _contentPanel.Controls)
+                if (c is Form f) f.Close();
+            _contentPanel.Controls.Clear();
+            _contentPanel.Visible = false;
+            SetDashboardSummaryVisible(true);
+            textBox1.Clear();
+            try { LoadDashboardData(); } catch { }
+        }
+
+        private void SetDashboardSummaryVisible(bool visible)
+        {
+            dataGridView1.Visible = visible;
+            dataGridView2.Visible = visible;
+            dataGridView3.Visible = visible;
+            label2.Visible = visible;
+            label3.Visible = visible;
+            label4.Visible = visible;
+            label8.Visible = visible;
+            textBox1.Visible = visible;
+            pictureBox2.Visible = visible;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             string kw = textBox1.Text.Trim();
-
             if (string.IsNullOrWhiteSpace(kw))
             {
                 dataGridView1.DataSource = _revenueTable;
@@ -157,170 +184,52 @@ namespace Salesbridge
                 dataGridView3.DataSource = _inventoryTable;
                 return;
             }
-
             try
             {
-                DataView dvRev = new DataView(_revenueTable);
-                dvRev.RowFilter =
-                    $"Convert([ID],'System.String') LIKE '%{kw}%' " +
-                    $"OR [Product] LIKE '%{kw}%'";
+                var dvRev = new DataView(_revenueTable);
+                dvRev.RowFilter = $"[Product] LIKE '%{kw}%'";
                 dataGridView1.DataSource = dvRev;
 
-                DataView dvTx = new DataView(_transactionTable);
-                dvTx.RowFilter =
-                    $"Convert([ID],'System.String') LIKE '%{kw}%' " +
-                    $"OR [CASHIER] LIKE '%{kw}%' " +
-                    $"OR [STATUS]  LIKE '%{kw}%' " +
-                    $"OR [DATE]    LIKE '%{kw}%'";
+                var dvTx = new DataView(_transactionTable);
+                dvTx.RowFilter = $"[CASHIER] LIKE '%{kw}%' OR [STATUS] LIKE '%{kw}%' OR [DATE] LIKE '%{kw}%'";
                 dataGridView2.DataSource = dvTx;
 
-                DataView dvInv = new DataView(_inventoryTable);
-                dvInv.RowFilter =
-                    $"[PRODUCT]  LIKE '%{kw}%' " +
-                    $"OR [CATEGORY] LIKE '%{kw}%' " +
-                    $"OR [STATUS]   LIKE '%{kw}%'";
+                var dvInv = new DataView(_inventoryTable);
+                dvInv.RowFilter = $"[PRODUCT] LIKE '%{kw}%' OR [CATEGORY] LIKE '%{kw}%' OR [STATUS] LIKE '%{kw}%'";
                 dataGridView3.DataSource = dvInv;
             }
-            catch
+            catch { }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e) => ShowDashboardSummary();
+        private void button2_Click_1(object sender, EventArgs e) => EmbedChild(new TRANSACTION());
+        private void button3_Click_1(object sender, EventArgs e) => EmbedChild(new Form1());
+        private void button4_Click_1(object sender, EventArgs e) => EmbedChild(new INVENTORY());
+        private void button5_Click_1(object sender, EventArgs e) => EmbedChild(new NOTIFICATION());
+        private void button6_Click_1(object sender, EventArgs e) => EmbedChild(new ANALYTICS());
+        private void button7_Click_1(object sender, EventArgs e) => Logout();
+        private void pictureBox8_Click(object sender, EventArgs e) => EmbedChild(new NOTIFICATION());
+        private void pictureBox9_Click(object sender, EventArgs e) => EmbedChild(new ANALYTICS());
+        private void pictureBox3_Click(object sender, EventArgs e) => Logout();
+        public void Logout()
+        {
+            if (MessageBox.Show("Are you sure you want to log out?", "Logout",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-            }
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Transaction module coming soon.", "Salesbridge",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("POS module coming soon.", "Salesbridge",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Inventory module coming soon.", "Salesbridge",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("No new notifications.", "Notifications",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            button5_Click(sender, e);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Analytics module coming soon.", "Salesbridge",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void pictureBox9_Click(object sender, EventArgs e)
-        {
-            button6_Click(sender, e);
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            DialogResult confirm = MessageBox.Show(
-                "Are you sure you want to log out?",
-                "Logout",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (confirm == DialogResult.Yes)
-            {
-                LOGIN loginForm = new LOGIN();
-                loginForm.Show();
+                new LOGIN().Show();
                 this.Close();
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-            try { LoadDashboardData(); }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Refresh error:\n" + ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("Transaction module coming soon.", "Salesbridge",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("POS module coming soon.", "Salesbridge",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("Inventory module coming soon.", "Salesbridge",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("No new notifications.", "Notifications",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void button6_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("Analytics module coming soon.", "Salesbridge",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click_1(object sender, EventArgs e)
-        {
-            DialogResult confirm = MessageBox.Show(
-                "Are you sure you want to log out?",
-                "Logout",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (confirm == DialogResult.Yes)
-            {
-                LOGIN loginForm = new LOGIN();
-                loginForm.Show();
-                this.Close();
-            }
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void button2_Click(object sender, EventArgs e) => EmbedChild(new TRANSACTION());
+        private void button3_Click(object sender, EventArgs e) => EmbedChild(new Form1());
+        private void button4_Click(object sender, EventArgs e) => EmbedChild(new INVENTORY());
+        private void button5_Click(object sender, EventArgs e) => EmbedChild(new NOTIFICATION());
+        private void button6_Click(object sender, EventArgs e) => EmbedChild(new ANALYTICS());
+        private void button7_Click(object sender, EventArgs e) => Logout();
+        private void pictureBox4_Click(object sender, EventArgs e) { }
+        private void pictureBox1_Click(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void richTextBox1_TextChanged(object sender, EventArgs e) { }
     }
 }
